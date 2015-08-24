@@ -51,10 +51,10 @@ class Mailchimp
     /**
      * @param string $apikey
      */
-    public function __construct($apikey = '')
+    public function __construct($apikey = '', $bVerifySSL = true)
     {
         $this->apikey = $apikey;
-        $this->client = new Client();
+        $this->client = new Client( array( 'verify' => $bVerifySSL ) );
 
         $this->detectEndpoint($this->apikey);
 
